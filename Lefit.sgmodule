@@ -1,0 +1,15 @@
+#!name=乐刻健身去广告
+#!desc=屏蔽乐刻健身 App 开屏广告及首页部分推广信息。
+#!category=广告屏蔽
+#!system=ios
+
+https://ahrefs.com/writing-tools/paragraph-rewriter
+# 拦截开屏广告
+^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew - reject-dict
+# 拦截首页中部推广
+^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.bff\.ClientFrontFacade\/queryHomeMiddleInfo - reject-dict
+# 拦截广告配置
+^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AdvertiseConfigFrontService\/getAdvertiseConfigNew - reject-dict
+
+[MITM]
+hostname = %APPEND% lens.leoao.com
