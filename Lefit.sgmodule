@@ -1,15 +1,16 @@
-#!name=乐刻健身去广告
-#!desc=屏蔽乐刻健身 App 开屏广告及首页部分推广信息。
-#!category=广告屏蔽
+#!name=乐刻健身去广告(增强版)
+#!desc=拦截乐刻 App 开屏及首页广告，使用 mock-data 提高兼容性。
 #!system=ios
 
-https://ahrefs.com/writing-tools/paragraph-rewriter
-# 拦截开屏广告
+# 拦截开屏广告配置
 ^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew - reject-dict
-# 拦截首页中部推广
+# 拦截首页中部信息
 ^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.bff\.ClientFrontFacade\/queryHomeMiddleInfo - reject-dict
-# 拦截广告配置
-^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AdvertiseConfigFrontService\/getAdvertiseConfigNew - reject-dict
+
+[Map Local]
+# 使用 Map Local 模拟返回空数据，防止部分版本报错
+^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew data-type=text data="{}"
+^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.bff\.ClientFrontFacade\/queryHomeMiddleInfo data-type=text data="{}"
 
 [MITM]
 hostname = %APPEND% lens.leoao.com
