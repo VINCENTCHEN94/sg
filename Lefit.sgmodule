@@ -1,5 +1,5 @@
-#!name=乐刻健身去广告 (优化版)
-#!desc=拦截乐刻 App 开屏及首页广告。
+#!name=乐刻健身去广告
+#!desc=拦截乐刻 App 开屏广告
 #!system=ios
 
 [URL Rewrite]
