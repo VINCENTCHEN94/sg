@@ -2,11 +2,12 @@
 #!desc=拦截乐刻 App 开屏广告
 #!system=ios
 
-https://ahrefs.com/writing-tools/paragraph-rewriter
-# 不使用 ^ 和 \，直接模糊匹配关键路径
-AppAdvertisingFrontService/getAppAdvertisingNew - reject-dict
-AdvertiseConfigFrontService/getAdvertiseConfigNew - reject-dict
-queryHomeMiddleInfo - reject-dict
-
+[URL Rewrite]
+^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.bff\.ClientFrontFacade\/queryHomeMiddleInfo - reject-200
+[Map Local]
+# 1. 拦截开屏广告接口（将 data 数组置空）
+^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew data='{"code":0,"data":[],"msg":"success"}'
+# 2. 拦截首页资源配置接口（将 list 数组置空）
+^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AdvertiseConfigFrontService\/getAdvertiseConfigNew data='{"code":0,"data":{"list":[],"name":"Empty"},"msg":"success"}'
 [MITM]
 hostname = %APPEND% lens.leoao.com
