@@ -5,9 +5,10 @@
 [URL Rewrite]
 ^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.bff\.ClientFrontFacade\/queryHomeMiddleInfo - reject-200
 [Map Local]
-# 1. 拦截开屏广告接口（将 data 数组置空）
-^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew data='{"code":0,"data":[],"msg":"success"}'
-# 2. 拦截首页资源配置接口（将 list 数组置空）
-^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AdvertiseConfigFrontService\/getAdvertiseConfigNew data='{"code":0,"data":{"list":[],"name":"Empty"},"msg":"success"}'
+# 1. 开屏广告接口 (返回 {"code":0,"data":[],"msg":"success"})
+^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew data="eyJjb2RlIjoyMDAsImRhdGEiOltdLCJtc2ciOiJzdWNjZXNzIn0="
+# 2. 首页配置接口 (返回 {"code":0,"data":{"list":[]},"msg":"success"})
+^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AdvertiseConfigFrontService\/getAdvertiseConfigNew data="eyJjb2RlIjoyMDAsImRhdGEiOnsibGlzdCI6W119LCJtc2ciOiJzdWNjZXNzIn0="
+
 [MITM]
 hostname = %APPEND% lens.leoao.com
