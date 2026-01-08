@@ -1,14 +1,10 @@
 #!name=乐刻健身去广告
-#!desc=拦截乐刻 App 开屏广告
+#!desc=拦截乐刻 App 开屏广告及首页资源位。使用远程脚本动态修改响应，规避 Map Local 语法错误。
 #!system=ios
 
-[URL Rewrite]
-^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.bff\.ClientFrontFacade\/queryHomeMiddleInfo - reject-200
-[Map Local]
-# 1. 开屏广告接口 (返回 {"code":0,"data":[],"msg":"success"})
-^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew data="eyJjb2RlIjoyMDAsImRhdGEiOltdLCJtc2ciOiJzdWNjZXNzIn0="
-# 2. 首页配置接口 (返回 {"code":0,"data":{"list":[]},"msg":"success"})
-^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AdvertiseConfigFrontService\/getAdvertiseConfigNew data="eyJjb2RlIjoyMDAsImRhdGEiOnsibGlzdCI6W119LCJtc2ciOiJzdWNjZXNzIn0="
+[Script]
+# 使用 http-request 模式配合 mock 响应，直接在请求阶段返回空数据
+乐刻去广告 = type=http-request, pattern=^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.(front|bff)\.(AppAdvertisingFrontService|AdvertiseConfigFrontService|ClientFrontFacade)\/(getAppAdvertisingNew|getAdvertiseConfigNew|queryHomeMiddleInfo), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/VINCENTCHEN94/sg/refs/heads/main/lefit.js
 
 [MITM]
 hostname = %APPEND% lens.leoao.com
