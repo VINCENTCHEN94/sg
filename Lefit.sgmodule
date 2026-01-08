@@ -2,12 +2,11 @@
 #!desc=拦截乐刻 App 开屏广告
 #!system=ios
 
-[URL Rewrite]
-^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.bff\.ClientFrontFacade\/queryHomeMiddleInfo.* - reject-200
-# 拦截首页资源配置（返回 {}）
-^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AdvertiseConfigFrontService\/getAdvertiseConfigNew.* - reject-dict
-# 拦截开屏广告接口（返回 {}）
-^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew.* - reject-dict
+https://ahrefs.com/writing-tools/paragraph-rewriter
+# 不使用 ^ 和 \，直接模糊匹配关键路径
+AppAdvertisingFrontService/getAppAdvertisingNew - reject-dict
+AdvertiseConfigFrontService/getAdvertiseConfigNew - reject-dict
+queryHomeMiddleInfo - reject-dict
 
 [MITM]
 hostname = %APPEND% lens.leoao.com
