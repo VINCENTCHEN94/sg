@@ -16,7 +16,7 @@
 # 石头去开屏 //cniot.roborock.com
 ^https?:\/\/cniot\.roborock\.com\/api\/v1\/activity\/banner\/list data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 # 福享太平去开屏 //ecloud.tppension.cntaiping.com
-^https?:\/\/ecloud\.tppension\.cntaiping\.com\/fxtpplatform\/common\/anonymous\/common\/page\/queryStartPageNew\?language=zh-CN data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/ecloud\.tppension\.cntaiping\.com\/fxtpplatform\/common\/anonymous\/common\/page\/queryStartPageNew data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 # 萤石云去开屏 //api.ys7.com,i.ys7.com
 ^http?:\/\/p\d+-be-pack-sign\.pglstatp-toutiao\.com\/(ad-app-package|web\.business\.image)\/ data-type=text data=" " status-code=200
 ^https?:\/\/i\.ys7\.com\/api\/user\/tabList data-type=text data="{}" status-code=200 header="Content-Type:application/json"
