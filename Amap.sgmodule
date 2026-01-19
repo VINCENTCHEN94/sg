@@ -1,5 +1,5 @@
-#!name=高德地图去广告
-#!desc=高德地图去开屏及部分广告&精简个人主页
+#!name=高德地图
+#!desc=去开屏&精简个人主页
 
 [Rule]
 DOMAIN-SUFFIX,optimus-ads.amap.com,DIRECT
