@@ -1,11 +1,7 @@
-#!name=个人去广告
-#!desc=Vincent维护常用去广告
+#!name=常用软件去开屏
+#!desc=美团、中信银行、石头、福享太平、萤石云
 
 [URL Rewrite]
-# 谷歌服务重定向 //*.google.cn
-^https?:\/\/translate\.google\.cn https://translate.google.com 302
-^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 302
-^https?:\/\/(ditu|maps).google\.cn https://maps.google.com 302
 # 美团去开屏 //flowplus.meituan.net,s3plus.meituan.net
 ^https?:\/\/flowplus\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) - reject
 ^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) - reject
@@ -27,4 +23,4 @@
 
 
 [MITM]
-hostname = *.google.cn, flowplus.meituan.net, s3plus.meituan.net, cniot.roborock.com, ecloud.tppension.cntaiping.com, imcs.citicbank.com, api.ys7.com, i.ys7.com
+hostname = flowplus.meituan.net, s3plus.meituan.net, cniot.roborock.com, ecloud.tppension.cntaiping.com, imcs.citicbank.com, api.ys7.com, i.ys7.com
