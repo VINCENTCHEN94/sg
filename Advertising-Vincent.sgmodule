@@ -1,5 +1,5 @@
 #!name=美团、中信银行、石头、福享太平、萤石云
-#!desc=去开屏
+#!desc=移除开屏广告
 
 [URL Rewrite]
 # 美团去开屏 //flowplus.meituan.net,s3plus.meituan.net
