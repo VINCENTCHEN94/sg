@@ -1,5 +1,5 @@
 #!name=京东
-#!arguments=jkds_enable:true
+#!desc=移除开屏广告
 
 [Rule]
 DOMAIN-SUFFIX,jzt.jd.com,REJECT
@@ -25,7 +25,7 @@ IP-CIDR6,2402:db40:5100:1011::5/128,REJECT,no-resolve
 ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=getWidgetV1052 - reject
 
 [Script]
-京东 = type=http-response, pattern=^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingdong/jingdong.js, requires-body=true, timeout=60
+京东 = type=http-response, pattern=^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome), script-path=https://raw.githubusercontent.com/VINCENTCHEN94/sg/refs/heads/main/jd.js, requires-body=true, timeout=60
 
 [MITM]
 hostname = %APPEND% api.m.jd.com, dns.jd.com
