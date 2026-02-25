@@ -1,8 +1,7 @@
 #!name=乐刻
 #!desc=移除开屏广告
 
-[Script]
-乐刻去广告 = type=http-request, pattern=^https:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.(front|bff)\.(AppAdvertisingFrontService|AdvertiseConfigFrontService|ClientFrontFacade)\/(getAppAdvertisingNew|getAdvertiseConfigNew|queryHomeMiddleInfo), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/VINCENTCHEN94/sg/refs/heads/main/lefit.js
-
+[URL Rewrite]
+^https?:\/\/lens\.leoao\.com\/lens\/.+(getUserScheme|queryAppBanners|Advert|popup) data-type=text data=" " status-code=200
 [MITM]
 hostname = %APPEND% lens.leoao.com
